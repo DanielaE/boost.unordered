@@ -9,6 +9,7 @@
 
 #if defined(BOOST_MSVC)
 #pragma warning(disable:4512) // assignment operator could not be generated
+#pragma warning(disable:4305) // 'argument' : truncation from 'double' to 'float'
 #endif
 
 test::seed_t initialize_seed(12847);
