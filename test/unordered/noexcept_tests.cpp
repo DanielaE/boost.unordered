@@ -10,6 +10,10 @@
 
 #include "../helpers/test.hpp"
 
+#if defined(BOOST_MSVC)
+#pragma warning(disable:4127) // conditional expression is constant
+#endif
+
 namespace noexcept_tests
 {
     // Test the noexcept is set correctly for the move constructor.

@@ -9,6 +9,7 @@
 
 #if defined(BOOST_MSVC)
 #pragma warning(disable:4512) // assignment operator could not be generated
+#pragma warning(disable:4305) // 'argument' : truncation from 'double' to 'float'
 #endif
 
 test::seed_t initialize_seed(12847);
@@ -67,10 +68,10 @@ struct assign_base : public test::exception_base
 
         // If the container is empty at the point of the exception, the
         // internal structure is hidden, this exposes it.
-        T& y = const_cast<T&>(x1);
+        T& y1 = const_cast<T&>(x1);
         if (x_values.size()) {
-            y.emplace(*x_values.begin());
-            test::check_equivalent_keys(y);
+            y1.emplace(*x_values.begin());
+            test::check_equivalent_keys(y1);
         }
     }
 };
