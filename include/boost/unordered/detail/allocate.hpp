@@ -50,6 +50,7 @@
 #pragma warning(disable:4345) // behavior change: an object of POD type
                               // constructed with an initializer of the form ()
                               // will be default-initialized.
+#pragma warning(disable:4494) // Ignoring __declspec(allocator)
 #endif
 
 // Maximum number of arguments supported by emplace + 1.
