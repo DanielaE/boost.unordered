@@ -2088,9 +2088,6 @@ namespace boost {
 
       template <typename Node>
       struct l_iterator
-        : public std::iterator<std::forward_iterator_tag,
-            typename Node::value_type, std::ptrdiff_t,
-            typename Node::value_type*, typename Node::value_type&>
       {
 #if !defined(BOOST_NO_MEMBER_TEMPLATE_FRIENDS)
         template <typename Node2>
@@ -2105,6 +2102,10 @@ namespace boost {
 
       public:
         typedef typename Node::value_type value_type;
+        typedef value_type* pointer;
+        typedef value_type& reference;
+        typedef std::ptrdiff_t difference_type;
+        typedef std::forward_iterator_tag iterator_category;
 
         l_iterator() BOOST_NOEXCEPT : ptr_() {}
 
@@ -2147,9 +2148,6 @@ namespace boost {
 
       template <typename Node>
       struct cl_iterator
-        : public std::iterator<std::forward_iterator_tag,
-            typename Node::value_type, std::ptrdiff_t,
-            typename Node::value_type const*, typename Node::value_type const&>
       {
         friend struct boost::unordered::iterator_detail::l_iterator<Node>;
 
@@ -2161,6 +2159,10 @@ namespace boost {
 
       public:
         typedef typename Node::value_type value_type;
+        typedef value_type const* pointer;
+        typedef value_type const& reference;
+        typedef std::ptrdiff_t difference_type;
+        typedef std::forward_iterator_tag iterator_category;
 
         cl_iterator() BOOST_NOEXCEPT : ptr_() {}
 
@@ -2213,9 +2215,6 @@ namespace boost {
 
       template <typename Node>
       struct iterator
-        : public std::iterator<std::forward_iterator_tag,
-            typename Node::value_type, std::ptrdiff_t,
-            typename Node::value_type*, typename Node::value_type&>
       {
 #if !defined(BOOST_NO_MEMBER_TEMPLATE_FRIENDS)
         template <typename>
@@ -2229,6 +2228,10 @@ namespace boost {
 
       public:
         typedef typename Node::value_type value_type;
+        typedef value_type* pointer;
+        typedef value_type& reference;
+        typedef std::ptrdiff_t difference_type;
+        typedef std::forward_iterator_tag iterator_category;
 
         iterator() BOOST_NOEXCEPT : node_() {}
 
@@ -2267,9 +2270,6 @@ namespace boost {
 
       template <typename Node>
       struct c_iterator
-        : public std::iterator<std::forward_iterator_tag,
-            typename Node::value_type, std::ptrdiff_t,
-            typename Node::value_type const*, typename Node::value_type const&>
       {
         friend struct boost::unordered::iterator_detail::iterator<Node>;
 
@@ -2284,6 +2284,10 @@ namespace boost {
 
       public:
         typedef typename Node::value_type value_type;
+        typedef value_type const* pointer;
+        typedef value_type const& reference;
+        typedef std::ptrdiff_t difference_type;
+        typedef std::forward_iterator_tag iterator_category;
 
         c_iterator() BOOST_NOEXCEPT : node_() {}
 
